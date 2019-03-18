@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import com.waether.app.R
 import kotlinx.android.synthetic.main.activity_randomized.*
 
-class Randomizer : FragmentActivity() {
+class Randomizer : AppCompatActivity() {
     override fun onCreate(
         savedInstanceState:
         Bundle?
