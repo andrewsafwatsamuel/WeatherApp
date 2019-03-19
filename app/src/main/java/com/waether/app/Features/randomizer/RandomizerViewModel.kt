@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.example.usecases.numberIncrementer
 
-private const val DEFAULT_VALUE = 0
+ const val DEFAULT_VALUE = 0
 
 class RandomizerViewModel : ViewModel() {
 
@@ -15,17 +15,14 @@ class RandomizerViewModel : ViewModel() {
 
 
     init {
-        numberLiveData.value = DEFAULT_VALUE
-    }
+        numberLiveData.postValue(DEFAULT_VALUE) }
 
 
     fun incrementNumber() {
-        numberIncrementer(numberLiveData, 2)
+        numberIncrementer(numberLiveData)
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
+
 
 
 }
