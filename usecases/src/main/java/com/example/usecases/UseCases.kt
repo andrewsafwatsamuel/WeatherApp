@@ -6,19 +6,20 @@ import com.example.entities.Coordinates
 import com.google.gson.Gson
 
 
-fun numberIncrementer(liveData:MutableLiveData<Int>,incrementByValue:Int=1){
 
-val oldValue=liveData.value?:0
-    liveData.postValue(oldValue+incrementByValue)
+class CoordinatesTypeConverter{
+    @TypeConverter
+    fun toJson(coordinates: Coordinates)= Gson().toJson(coordinates)
 
-
-    class CoordinatesTypeConverter{
-        @TypeConverter
-        fun toJson(coordinates: Coordinates)= Gson().toJson(coordinates)
-
-        @TypeConverter
-        fun fromJson(string: String)= Gson().fromJson(string, Coordinates::class.java)
-
-    }
+    @TypeConverter
+    fun fromJson(string: String)= Gson().fromJson(string, Coordinates::class.java)
 
 }
+
+
+fun numberIncrementer(liveData:MutableLiveData<Int>,incrementByValue:Int=1){
+val oldValue=liveData.value?:0
+    liveData.postValue(oldValue+incrementByValue)
+}
+
+
