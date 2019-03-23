@@ -26,8 +26,8 @@ interface FavouritesDao {
     fun QueryAll(): List<FavoriteCityId>
 
     @Insert
-    fun addFavouriteCityId(fovouriteCityIds: List<FavoriteCityId>)
+    fun insert(fovouriteCityIds: FavoriteCityId)
 
     @Delete
-    fun removeCityId(fovouriteCityIds: List<FavoriteCityId>)
+    fun delete(fovouriteCityIds:FavoriteCityId)
 }

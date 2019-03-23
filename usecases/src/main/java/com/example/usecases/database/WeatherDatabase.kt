@@ -5,16 +5,14 @@ import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import com.example.entities.City
 import com.example.entities.FavoriteCityId
-import com.example.usecases.CoordinatesTypeConverter
 import com.example.usecases.applicationLiveData
 import com.example.usecases.getApplication
 
 
-val weatherDatabase by lazy {  initializeDatabase(applicationLiveData.getApplication())}
+val weatherDatabase by lazy { initializeDatabase(applicationLiveData.getApplication()) }
 
 
-
-@Database(entities = [City::class, FavoriteCityId::class], version = 1,exportSchema = false)
+@Database(entities = [City::class, FavoriteCityId::class], version = 1, exportSchema = false)
 
 @TypeConverters(CoordinatesTypeConverter::class)
 
