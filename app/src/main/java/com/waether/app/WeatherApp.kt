@@ -7,7 +7,7 @@ import com.waether.app.core.activityLifeCycleCallBacks
 class WeatherApp:Application(){
     override fun onCreate() {
         super.onCreate()
-      //  registerActivityLifecycleCallbacks(activityLifeCycleCallBacks)
+       registerActivityLifecycleCallbacks(activityLifeCycleCallBacks)
         Domain.with(this)
     }
 }

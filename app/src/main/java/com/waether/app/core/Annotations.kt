@@ -1,5 +1,7 @@
 package com.waether.app.core
 
-class Annotations {
 
-}
+@Retention(AnnotationRetention.RUNTIME)
+@Target(AnnotationTarget.CLASS)
+annotation class ContentViewId(val layoutId:Int)
+

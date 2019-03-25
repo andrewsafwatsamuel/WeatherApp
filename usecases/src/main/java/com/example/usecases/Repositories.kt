@@ -7,19 +7,19 @@ import com.example.usecases.database.weatherDatabase
 
 val citiesRepository by lazy { CitiesRepository() }
 
-class CitiesRepository(private val database:  WeatherDatabase= weatherDatabase) {
+class CitiesRepository(private val database:  WeatherDatabase= weatherDatabase):Repository {
 
-    fun searchCitiesByName(city: String) = database.citiesDao.queryCitiesByName(city)
+    override fun searchCitiesByName(cityName: String) = database.citiesDao.queryCitiesByName(cityName)
 
 
-    fun retrieveFavouriteCitiesIds() = database.favouriteCitiesDao.QueryAll()
+    override fun retrieveFavouriteCitiesIds() = database.favouriteCitiesDao.QueryAll()
 
-    fun retrieveCitiesById(favouriteCityIds: List<Long>) = database.citiesDao.queryCityIds(favouriteCityIds)
+    override fun retrieveCitiesById(favouriteCityIds: List<Long>) = database.citiesDao.queryCityIds(favouriteCityIds)
 
-    fun addFavouriteCityId(favouriteCityId: FavoriteCityId) =
+    override fun addFavouriteCityId(favouriteCityId: FavoriteCityId) =
         database.favouriteCitiesDao.insert(favouriteCityId)
 
-    fun removeFavouriteCityId(favouriteCityId: FavoriteCityId) =
+    override fun removeFavouriteCityId(favouriteCityId: FavoriteCityId) =
         database.favouriteCitiesDao.delete(favouriteCityId)
 
 }
