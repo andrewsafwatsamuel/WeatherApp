@@ -13,7 +13,7 @@ interface CitiesDao {
     @Query("SELECT * FROM City")
     fun queryAll():List<City>
 
-    @Query("SELECT * FROM city WHERE name LIKE '%' ||:name|| '%'")
+    @Query("SELECT * FROM city WHERE name LIKE '%' || :name|| '%'")
     fun queryCitiesByName(name: String): List<City>
 
     @Query("SELECT * FROM city WHERE id IN (:ids)")
@@ -23,7 +23,7 @@ interface CitiesDao {
 @Dao
 interface FavouritesDao {
     @Query("SELECT * FROM FavoriteCityId")
-    fun QueryAll(): List<FavoriteCityId>
+    fun queryAll(): List<FavoriteCityId>
 
     @Insert
     fun insert(fovouriteCityIds: FavoriteCityId)

@@ -12,7 +12,7 @@ class CitiesRepository(private val database:  WeatherDatabase= weatherDatabase):
     override fun searchCitiesByName(cityName: String) = database.citiesDao.queryCitiesByName(cityName)
 
 
-    override fun retrieveFavouriteCitiesIds() = database.favouriteCitiesDao.QueryAll()
+    override fun retrieveFavouriteCitiesIds() = database.favouriteCitiesDao.queryAll()
 
     override fun retrieveCitiesById(favouriteCityIds: List<Long>) = database.citiesDao.queryCityIds(favouriteCityIds)
 
